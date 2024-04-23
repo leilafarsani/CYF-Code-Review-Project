@@ -17,4 +17,27 @@ Your task is to write a JavaScript function `approximateArea` that takes the fol
 Your function should return an approximation of the area under the curve using the trapezoidal rule.
 */
 
+// Good Practice
+
+// Function to approximate the area under a curve using the trapezoidal rule
+function approximateArea(f, a, b, n) {
+    // Calculate the width of each subinterval
+    const intervalWidth = (b - a) / n;
+
+    let sum = 0;
+
+    for (let i = 0; i < n; i++) {
+        // Calculate the left and right endpoints of the trapezoid
+        const leftX = a + i * intervalWidth;
+        const rightX = a + (i + 1) * intervalWidth;
+
+        // Calculate the height of the trapezoid using the function values at the endpoints
+        const height = (f(leftX) + f(rightX)) / 2;
+
+        // Calculate the area of the trapezoid and add it to the sum
+        const area = height * intervalWidth;
+        sum += area;
+    }
+    return sum;
+}
 
