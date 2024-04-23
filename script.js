@@ -41,3 +41,6 @@ function approximateArea(f, a, b, n) {
     return sum;
 }
 
+// Test the approximateArea function with the function f(x) = x^2 on the interval [0, 1] using 100 subintervals
+const area = approximateArea(x => x * x, 0, 1, 100);
+console.log(area);
